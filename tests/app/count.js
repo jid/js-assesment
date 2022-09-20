@@ -21,7 +21,8 @@ describe('counter', function () {
 
     if (typeof console === 'undefined') {
       console = {
-        log: null
+        log: null,
+        origConsoleLog: console.log
       };
     }
     origConsoleLog = console.log;
@@ -34,6 +35,8 @@ describe('counter', function () {
 
   afterEach(function () {
     console.log = origConsoleLog;
+
+    // console.log(nums)
 
     this.clock.restore();
   });
